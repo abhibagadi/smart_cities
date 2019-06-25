@@ -1,0 +1,20 @@
+{% include 'header.html' %}
+      <div class="container-fluid">
+        
+            <h3 class="mt-4">City Profile</h3>
+            <form action = "{{url_for('city_profile')}}" method = post>
+            <fieldset>
+                {{ form.csrf }}
+                <center>
+                    <div class="form-group">
+                        {{ form.city.label }} {{ form.city }}
+                        {{ form.submit }}
+                    </div>
+                </center>
+            </fieldset>
+        </form>
+            <div class="container" align="left">
+			<embed type="image/svg+xml" src={{graph_data|safe}} style='max-width:70%'/>
+	  </div>
+      </div>
+{% include 'footer.html' %}

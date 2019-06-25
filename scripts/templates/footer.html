@@ -1,0 +1,61 @@
+    </div>
+    <!-- /#page-content-wrapper -->
+    
+  </div>
+  <!-- /#wrapper -->
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+  
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+  
+  
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": {
+            // "url": "static/objects2.txt", // This works for the static file
+            "url": "/get_ranking_data", // This doesn't work
+            "dataType": "json",
+            "pageLength": 20
+            // "dataSrc": "data",
+            // "contentType":"application/json"
+        },
+        "columns": [
+            { "data": "CITY" },
+            { "data": "SMART_ECONOMY" },
+            { "data": "SMART_MOBILITY" },
+            { "data": "SMART_LIVING" },
+            { "data": "SMART_PEOPLE" },
+            { "data": "SMART_INFRASTRUCTURE" },
+            { "data": "OVERALL" }
+        ],
+        columnDefs: [
+        {
+            targets: "_all",
+            className: 'dt-center'
+        },
+        {
+            targets: [0],
+            className: 'dt-body-left'
+        }
+    ]
+    } );
+} );
+</script>
+
+</body>
+
+</html>

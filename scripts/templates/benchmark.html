@@ -1,0 +1,20 @@
+{% include 'header.html' %}
+    <div class="container-fluid"> 
+        <h3 class="mt-4">Benchmark</h3>        
+        <form action = "{{url_for('benchmark')}}" method = post>
+            <fieldset>
+                {{ form.csrf }}
+                <center>
+                    <div class="form-group">
+                        {{ form.city1.label }} {{ form.city1 }}
+                        {{ form.city2.label }} {{ form.city2 }}
+                        {{ form.submit }}
+                    </div>
+                </center>
+            </fieldset>
+        </form>
+        {% if render_data[0] %}
+            <embed type="image/svg+xml" src={{render_data[0]|safe}} style='max-width:80%'/>
+        {% endif %}
+    </div>
+{% include 'footer.html' %}
